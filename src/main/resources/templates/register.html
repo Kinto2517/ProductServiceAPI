@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .redirect-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .redirect-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function redirectToLogin() {
+            console.log("redirectToLogin() called");
+            window.location.href = "/api/v1/pages/login";
+        }
+
+        // Call the redirectToLogin() function onsubmit of the form.
+        document.querySelector("form").onsubmit = redirectToLogin;
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Registration</h1>
+    <form action="/api/v1/user/saveWeb" method="post" onsubmit="redirectToLogin()">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+
+
+        <button type="submit">Register</button>
+    </form>
+    <div class="redirect-link">
+        <a href="/api/v1/pages/login">Already have an account? Login here</a>
+    </div>
+</div>
+
+<script>
+    function redirectToLogin() {
+        console.log("redirectToLogin() called");
+        window.location.href = "/api/v1/pages/login";
+    }
+
+    // Call the redirectToLogin() function onsubmit of the form.
+    document.querySelector("form").onsubmit = redirectToLogin;
+</script>
+</body>
+</html>
